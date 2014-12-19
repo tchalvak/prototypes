@@ -1,6 +1,7 @@
 Feature: System which takes in packages with id, size, and speed qualities.  Then ship those packages by priority, which is fast > slow, large > small, FIFO. We'll assume that ids are numeric for now.
 
 Scenario:
+  Given a shipping App exists
   Given the packages "410,large,slow", "333,small,slow", "555,small,slow", "417,large,slow", "444,small,fast", "777,large,fast", and "312,large,fast"
   And the package count is "7"
   When A next package out is requested

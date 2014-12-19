@@ -23,6 +23,91 @@ class FeatureContext implements Context, SnippetAcceptingContext
     {
     }
 
+    /**
+     * @Given a shipping App exists
+     */
+    public function aShippingAppExists()
+    {
+        $this->shipper = new Shipper();
+    }
+
+
+    /**
+     * @Given the packages :arg1, :arg2, :arg3, :arg4, :arg5, :arg6, and :arg7
+     */
+    public function thePackagesAnd($arg1, $arg2, $arg3, $arg4, $arg5, $arg6, $arg7)
+    {
+        $string_packages = func_get_args();
+        foreach($string_packages as $string_package){
+            $package = explode(',', (string)$string_package);
+
+        }
+        throw new PendingException();
+    }
+
+    /**
+     * @Given the package count is :arg1
+     */
+    public function thePackageCountIs($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When A next package out is requested
+     */
+    public function aNextPackageOutIsRequested()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then It will be package :arg1
+     */
+    public function itWillBePackage($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then next will be package :arg1
+     */
+    public function nextWillBePackage($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then no more packages are available
+     */
+    public function noMorePackagesAreAvailable()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given no packages in the system
+     */
+    public function noPackagesInTheSystem()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When :arg1 is added
+     */
+    public function isAdded($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then the next package is :arg1
+     */
+    public function theNextPackageIs($arg1)
+    {
+        throw new PendingException();
+    }
 
 
     /**
