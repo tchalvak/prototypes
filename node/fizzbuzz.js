@@ -25,7 +25,8 @@ function assert(condition, message) {
 }
 
 var output = '';
-for(i=1;i<101;i++){
+var i=1;
+for(;i<101;i++){
     if(output) {
         output += "       ";
         
