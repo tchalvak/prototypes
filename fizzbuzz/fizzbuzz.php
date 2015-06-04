@@ -1,5 +1,5 @@
 <?php
-// Procedural just because it's such a trivial case.
+// Procedural only because it's such a trivial case.
 
 // Output for each number
 function fizz($num){
