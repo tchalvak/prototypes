@@ -1,0 +1,12 @@
+var enemyCats = {'munchkin':[],'scout':[],'thrower':[],'shaman':[],'ogre':[],'captain':[], 'misc':[]};
+var minor = enemyCats.munchkin || enemyCats.scout || enemyCats.thrower || enemyCats.shaman;
+var major = enemyCats.ogre || enemyCats.captain || enemyCats.misc;
+var flat = [] || [] || [] || {'present':true};
+console.log(minor, major, flat);
+console.assert(minor.length === 0);
+console.assert(major.length === 0);
+console.assert(flat.present === true);
+enemyCats.shaman.push({'something':'whatever'});
+minor = enemyCats.munchkin || enemyCats.scout || enemyCats.thrower || enemyCats.shaman;
+console.assert(minor.length === 1);
+console.log(minor, major, flat);
