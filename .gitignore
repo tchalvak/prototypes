@@ -7,3 +7,4 @@ python/.env
 __pycache__/
 *.py[cod]
 *$py.class
+fizzbuzz/applicants/a.out

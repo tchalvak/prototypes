@@ -1,0 +1,1 @@
+Print the numbers 1 to 100 inclusive and for each, if it's divisible by 3 also print "Ninja", if it's divisible by 4 also print "Turtles" if it's divisible by both 3 and 4 print "Ninja Turtles" with a space.  End each with a newline.
