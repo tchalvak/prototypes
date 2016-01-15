@@ -2,13 +2,13 @@ from nose.tools import *
 import probs
 
 def setup():
-    print "SETUP!"
+    print("SETUP!")
 
 def teardown():
-    print "TEAR DOWN!"
+    print("TEAR DOWN!")
+
+def test_time_runs():
+	print(timeify('07:05:45PM') is not None)
 
 def test_basic():
-    print "I RAN!"
-
-def test_fizz():
-    print "Fizz" == True
+    print("I RAN!")
