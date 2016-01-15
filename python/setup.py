@@ -4,11 +4,10 @@ except ImportError:
     from distutils.core import setup
 
 config = {
-    'description': 'My Project',
-    'author': 'My Name',
-    'url': 'URL to get it at.',
-    'download_url': 'Where to download it.',
-    'author_email': 'My email.',
+    'description': 'Prototyping',
+    'author': 'Roy R.',
+    'url': 'http://github.com/tchalvak/prototypes',
+    'author_email': 'tchal.vakSPAM@gmail.com',
     'version': '0.1',
     'install_requires': ['nose'],
     'packages': ['boa'],
