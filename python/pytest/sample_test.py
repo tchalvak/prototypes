@@ -1,40 +1,6 @@
 # Run py.test to run
-from yaml import load, dump
 import pytest
-import yaml
-import configparser
 
-
-documents = """
----
-- Ada
-- APL
-- ASP
-
-- Assembly
-- Awk
----
-- Basic
----
-- C
-- C#    # Note that comments are denoted with ' #' (space then #).
-- C++
-- Cold Fusion
-...
-"""
-
-for data in yaml.load_all(documents):
-    print data
-
-
-print 'whatever'
-
-
-'''
-stream = file('document.yaml', 'r')    # 'document.yaml' contains a single YAML document.
-for data in yaml.load_all(stream):
-    print(data)
-'''
 
 # content of test_sample.py
 def func(x):
