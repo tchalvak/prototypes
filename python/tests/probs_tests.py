@@ -1,4 +1,4 @@
-from nose.tools import *
+from nose2.tools import *
 import probs
 
 def setup():

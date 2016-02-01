@@ -8,3 +8,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 fizzbuzz/applicants/a.out
+python/probs/bin
+python/probs/lib/
+python/probs/local/
+python/probs/include/
