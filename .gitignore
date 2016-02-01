@@ -12,3 +12,8 @@ python/probs/bin
 python/probs/lib/
 python/probs/local/
 python/probs/include/
+/python/boa/lib/
+/python/boa/bin/
+/python/.cache/
+python/boa/local/
+python/boa/include/
