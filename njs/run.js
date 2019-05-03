@@ -3,12 +3,23 @@ const runIt = (n, ar)=>{
     return ar
 }
 
-
-const context = {}
-context.runIt = runIt
+// Complete the oddNumbers function below.
+const oddNumbers = (l, r) => {
+    let current = l % 2 === 0 ? l + 1 : l
+    let out = ''
+    if (current >= r) {
+        return out
+    }
+    while (current <= r) {
+        out = [out, current].join(' ')
+        current = current + 2
+    }
+    console.log(current, out.trim())
+    return out.trim()
+}
 
 const cases = [
-    {'func':runIt, 'args':[1, 2], 'result':2},
+    {'func':oddNumbers, 'args':[2, 5], 'result':'3 5'},
 ]
 
 cases.map(elem => {
