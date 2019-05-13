@@ -1,0 +1,119 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+<div>
+    <div>
+        <form id="add-contact">
+            <input class="add_name" name="person_name" type="text" placeholder="Name" />
+            <input class="add_address" name="person_address" type="text" placeholder="Address" />
+            <input class="add_phone" name="person_phone" type="tel" placeholder="+15555555555" />
+            <button type="submit">Add A Contact</button>
+        </form>
+    </div>
+    <table id="contact-list">
+        <thead>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Address
+                </td>
+                <td>
+                    Phone
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="row-template" style="display:none">
+                <td class="name">
+                    
+                </td>
+                <td class="address">
+                    
+                </td>
+                <td class="phone">
+                    
+                </td>
+                <td class="delete">
+                    <form><button type="submit">X</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+<script>
+// > Create a table of contact information (name, address, phone) that allows a user to add contacts dynamically.  
+// > Keep it all on the browser; you don't have to submit to a server.  
+// > Bonus: Also, be able to delete specific contacts.  
+function init() {
+const persons = [
+        {
+            "name":"Roy",
+            "address": "2000 Millenium Drive",
+            "phone":"+15555555555"
+        },
+        {
+            "name":"Bob",
+            "address": "5000 Millenium Drive",
+            "phone":"+15556666666"
+        },
+    ]
+
+const addPerson = (person) => {
+    persons.push(person)
+}
+
+const renderEach = (person) => {
+    const addition = $('#row-template').clone()
+    addition.find('.name').text(person.name)
+    addition.find('.address').text(person.address)
+    addition.find('.phone').text(person.phone)
+    addition.show()
+    // Show the node
+    // Add the node to the table body
+    return addition
+}
+
+const renderPersons = (persons) => {
+        persons.map((person)=>{
+            addPerson(person)
+            $('#contact-list tbody').append(renderEach(person))
+        })
+}
+
+const rerender = (persons) => {
+    $('#contact-list tbody :not(#row-template)').remove()
+    renderPersons(persons)
+}
+
+    return [ addPerson, rerender ]
+
+}
+
+const [ addPerson, rerender ] = init()
+
+
+$("#add-contact").submit((e)=>{
+    const person = {}
+    const form = $(e.target)
+    person.name = form.find('[name=person_name]').val()
+    person.address = $(e.target).find('[name=person_address]').val()
+    person.phone = $(e.target).find('[name=person_phone]').val()
+    // Just add the data to the rendered table
+    console.log(person)
+    addPerson(person)
+    rerender(persons)
+    e.preventDefault()
+})
+
+rerender(persons)
+</script>
