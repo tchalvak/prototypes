@@ -5,6 +5,7 @@
   "dependencies": {
     "assert": "^2.0.0",
     "mocha": "^6.1.4",
+    "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
@@ -14,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prototype:tictactoe": "node njs/ticTacToe.js"
+    "pro:t": "node njs/ticTacToe.js",
+    "format": "prettier --write \"src/**/*.js\""
   },
   "eslintConfig": {
     "extends": "react-app"
