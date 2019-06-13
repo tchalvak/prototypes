@@ -60,8 +60,8 @@ describe('Moves', ()=>{
   it('should allow moves', ()=>{
     let board = generateBoard(0, 0, 2, 2)
     let res, res2
-    [res, board] = move(2, 2, 'X', board)
-    [res2, board] = move(0, 0, 'X', board)
+    [res, board] = move(2, 2, 'X', board);
+    [res2, board] = move(0, 0, 'X', board);
     assert(res, 'Move X1 worked')
     assert(res2, 'Move X2 worked')
     assert.deepEqual(board[2][2], 'X')
@@ -70,8 +70,8 @@ describe('Moves', ()=>{
   it('should reject a duplicate move', ()=>{
     let board = generateBoard(0, 0, 3, 3)
     let res
-    [res, board] = move(0, 0, 'O', board)
-    [res, board] = move(0, 0, 'X', board)
+    [res, board] = move(0, 0, 'O', board);
+    [res, board] = move(0, 0, 'X', board);
     assert(res === false)
     assert(board[0][0] === 'O')
   })
@@ -81,6 +81,6 @@ mocha.run()
 
 let board = generateBoard(0, 0, 2, 2)
 let res
-[res, board] = move(0, 0, 'X', board)
-[res, board] = move(1, 1, 'O', board)
+[res, board] = move(0, 0, 'X', board);
+[res, board] = move(1, 1, 'O', board);
 console.log(renderBoard(board))
