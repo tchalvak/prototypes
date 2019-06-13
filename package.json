@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "pro:t": "node njs/ticTacToe.js",
+    "pro:t": "npx mocha njs/ticTacToe.js",
     "format": "prettier --write \"src/**/*.js\""
   },
   "eslintConfig": {
