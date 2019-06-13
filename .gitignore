@@ -17,3 +17,5 @@ python/probs/include/
 /python/.cache/
 python/boa/local/
 python/boa/include/
+co/
+node_modules

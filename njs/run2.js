@@ -1,0 +1,1 @@
+process.stdout.write('['+[...Array(1001).keys()].join(', ')+']')
