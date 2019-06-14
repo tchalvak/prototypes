@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './binary_logo.svg';
 import './App.css';
 
 function App() {
@@ -7,18 +7,21 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1>Prototypes</h1>
+      </header>
+      <article>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          For creating various small <code>Code</code> prototypes, in react and in node.
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://prototypes.royronalds.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          View live
         </a>
-      </header>
+      </article>
     </div>
   );
 }

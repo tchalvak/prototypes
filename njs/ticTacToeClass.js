@@ -2,7 +2,27 @@ var Mocha = require('mocha')
 var assert = require('assert')
 var mocha = new Mocha()
 
-const generateBoard = (minX, minY, x, y, filler=' ')=>{
+class Board{
+  generate(minX, minY, x, y, filler=' '){
+    const board = []
+    for(let i = minX; i <= x; i++){
+      board[i] = (new Array(y + 1 - minY)).fill(filler)
+    }
+    this.board = board
+  }
+
+  move(x, y, token){
+    console.log(`Placing an ${token} at position ${x},${y}`)
+    let res = false
+    if(!(['X', 'Y'].includes(this.board[x][y]))){
+      this.board[x][y] = token
+      res = true
+    }
+    return res
+  }
+}
+
+const generateBoard = =>{
   const board = []
   for(let i = minX; i <= x; i++){
     board[i] = (new Array(y + 1 - minY)).fill(filler)
@@ -11,15 +31,8 @@ const generateBoard = (minX, minY, x, y, filler=' ')=>{
 }
 
 
-const move = (x, y, token, board)=>{
-  console.log(`Placing an ${token} at position ${x},${y}`)
-  const allowedTokens = ['X', 'Y']
-  let res = false
-  if(!(allowedTokens.includes(board[x][y]))){
-    board[x][y] = token
-    res = true
-  }
-  return [res, board]
+const move = =>{
+
 }
 
 const renderBoard = (board)=>{
@@ -52,21 +65,18 @@ const checkSameTokens = (coords, board)=>{
         }
       }
     }
-  }
-  return token
+    return token
 }
-  
-const checkForWin = (board)=>{
-  let win = null
-  // Check the columns
-  // check the rows
-  // Check the diagonals
-  return win
-}
+
+// Test moves
+// Test rejections
+// Test board state
+// Test render
+// test win conditions
+// check win conditions
 
 mocha.suite.emit('pre-require', this, 'solution', mocha) // requriement
 
-// Test board generation
 describe('Board', function() {
   it('should have a board', function() {
     assert(Array.isArray(generateBoard(0, 0, 2, 2)))
@@ -81,7 +91,6 @@ describe('Board', function() {
   })
 })
 
-// Test making moves
 describe('Moves', ()=>{
   it('should allow moves', ()=>{
     let board = generateBoard(0, 0, 2, 2)
@@ -99,48 +108,24 @@ describe('Moves', ()=>{
     [res, board] = move(0, 0, 'O', board);
     [res, board] = move(0, 0, 'X', board);
     assert(res === false)
-    assert.deepEqual(board[0][0], 'O', `Did not work for board: ${JSON.stringify(board)}`)
-  })
-  it('should reject a same triplicate move', ()=>{
-    let board = generateBoard(0, 0, 3, 3)
-    let res;
-    [res, board] = move(0, 0, 'O', board);
-    [res, board] = move(0, 0, 'O', board);
-    [res, board] = move(0, 0, 'O', board);
-    assert.deepEqual(res, false)
-    assert.deepEqual(board[0][0], 'O')
+    assert(board[0][0] === 'O')
   })
 })
-
-// Test for wins
+  
 describe('Win Checks', ()=>{
-  it('should not find same on a blank board', ()=>{
+  it('should fail to win on a blank board', ()=>{
     let board = generateBoard(0, 0, 2, 2)
-    assert(checkSameTokens([[0,0],[0,1],[0,2]], board) !== 'X')
-  })
-  it('should find same on a full X board', ()=>{
-    let board = generateBoard(0, 0, 2, 2, 'X')
     assert(checkSameTokens([[0,0],[0,1],[0,2]], board) === 'X')
   })
-  xit('should win on a full X board', ()=>{
+  it('should win on a full X board', ()=>{
     let board = generateBoard(0, 0, 2, 2, 'X')
-    assert.deepEqual(checkForWin(board), false)    
-  })
-  xit('should not win on a blank board', ()=>{
-    let board = generateBoard(0, 0, 2, 2)
-    assert.deepEqual(checkForWin(board), false)
-  })
-  xit('should win on a single row on a blank board', ()=>{
-    let board = generateBoard(0, 0, 2, 2)
-    let res;
-    [res, board] = move(0, 0, 'O', board);
-    [res, board] = move(1, 0, 'O', board);
-    [res, board] = move(2, 0, 'O', board);
-    assert.deepEqual(checkForWin(board), true)
+    assert(checkSameTokens([[0,0],[0,1],[0,2]], board) === 'X')
   })
 })
 
 mocha.run()
+
+// Run a board with some moves
 
 let board = generateBoard(0, 0, 2, 2)
 let res;
@@ -155,20 +140,11 @@ const readline = require('readline').createInterface({
 
 
 const question = `Provide a comma separated move like 1,1,X and that move will be made.  Move:`
-
-let moved = 0
-
-//while(moved < 10){
-  readline.question(question, (moveInput) => {
-    if(moveInput.length < 5){
-      console.log('Invalid move.')
-    }
-    moved = moved + 1
-    const moveF = moveInput.split(',')
-    let res;
-    [res, board] = move(moveF[0], moveF[1], moveF[2], board);
-    console.log(renderBoard(board))
-    readline.close()
-    return board
-  })
-//}
+readline.question(question, (moveInput) => {
+  // Strip whitespace and then split on commas
+  const move = moveInput.replace(/\s/g, "").split(',')
+  let res;
+  [res, board] = move(move[0], move[1], move[2], board)
+  readline.close()
+  return board
+})

@@ -16,6 +16,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "pro:t": "npx mocha njs/ticTacToe.js",
+    "pro:c": "npx mocha njs/mergingGroups.js",
+    "pro:s": "npx mocha njs/squareRoot.js",
     "format": "prettier --write \"src/**/*.js\""
   },
   "eslintConfig": {
